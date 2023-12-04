@@ -9,6 +9,8 @@ export function useMovies(query) {
 
   useEffect(
     function () {
+      // callback?.();
+
       const controller = new AbortController();
 
       async function fetchMovies() {
@@ -26,7 +28,7 @@ export function useMovies(query) {
             throw new Error("Something went wrong when fetching movies");
 
           const data = await res.json();
-          console.log(data);
+          // console.log(data);
 
           if (data.Response === "False") throw new Error("Movie not found");
 
